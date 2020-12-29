@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>The Odin Project - RPS</title>
+
+  <style>
+    /*CSS placeholder */
+  </style>
+
+</head>
+<body>
+
+  <h1>
+    <!-- HTML placeholder -->
+  </h1>
+
+  <script>
+    const options = ['rock', 'paper', 'scissors'];
+    let computerChoice = '';
+    let playerSelection = '';
+    let playerScore = 0;
+    let computerScore = 0;
+
+    function computerPlay() {
+
+        computerChoice = options[Math.floor(Math.random() * options.length)];
+        return computerChoice;
+    }
+
+    function playGame() {
+        
+        function playRound(player, computer) {
+
+            playerSelection = prompt("Type rock, paper, or scissors").toLowerCase();
+
+            computerPlay();
+
+            if(computerChoice == playerSelection) {
+                return 'tie';  
+            } else if(computerChoice == 'rock' && playerSelection == 'scissors') {
+                computerScore++;
+                return 'You lose, ' + computerChoice + ' beats ' + playerSelection;
+            } else if(computerChoice == 'paper' && playerSelection == 'rock') {
+                computerScore++;
+                return 'You lose, ' + computerChoice + ' beats ' + playerSelection;
+            } else if(computerChoice == 'scissors' && playerSelection == 'paper') {
+                computerScore++;
+                return 'You lose, ' + computerChoice + ' beats ' + playerSelection;
+            } else {
+                playerScore++;
+                return 'You win! ' + playerSelection + ' beats ' + computerChoice;
+            }
+        }
+
+        return playRound(playerSelection,computerChoice);
+    }
+        
+
+    console.log(playGame());
+    console.log(playGame());
+    console.log(playGame());
+    console.log(playGame());
+    console.log(playGame());
+    console.log('Final Score: Computer ' + playerScore + ' - User ' +  computerScore);
+
+
+
+
+  </script>
+
+</body>
+</html>
+
